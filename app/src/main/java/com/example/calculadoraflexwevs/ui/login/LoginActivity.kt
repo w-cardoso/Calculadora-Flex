@@ -8,7 +8,9 @@ import android.widget.Toast
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.ui.form.FormActivity
 import com.example.calculadoraflexwevs.ui.singup.SignUpActivity
+import com.example.calculadoraflexwevs.utils.DatabaseUtil
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.singleTop
@@ -48,10 +50,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) { instanceIdResult ->
+            val newToken = instanceIdResult.token
+            DatabaseUtil.saveToken(newToken)
+        }
         startActivity(intentFor<FormActivity>().singleTop())
-        /* val intent = Intent(this, FormActivity::class.java)
-         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-         startActivity(intent)*/
         finish()
     }
 

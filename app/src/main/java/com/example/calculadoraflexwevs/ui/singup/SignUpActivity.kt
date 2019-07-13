@@ -46,15 +46,12 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     toast("Usuário criado com sucesso")
-                    /*Toast.makeText(this, "Usuário criado com sucesso",
-                        Toast.LENGTH_SHORT).show()*/
                     val returnIntent = Intent()
                     returnIntent.putExtra("email", inputLoginEmail.text.toString())
                     setResult(RESULT_OK, returnIntent)
                     finish()
                 } else {
                     toast("Erro ao criar o usuário")
-                    //Toast.makeText(this, "Erro ao criar o usuário", Toast.LENGTH_SHORT).show()
                 }
             }
     }

@@ -1,10 +1,9 @@
 package com.example.calculadoraflexwevs.ui.form
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.extensions.format
 import com.example.calculadoraflexwevs.model.CarData
@@ -49,10 +48,6 @@ class FormActivity : AppCompatActivity() {
             saveCarData(carData)
             startActivity<ResultActivity>(
                 "CAR_DATA" to carData
-                /*"GAS_PRICE" to etGasPrice.text.toString().toDouble(),
-                "ETHANOL_PRICE" to etEthanolPrice.text.toString().toDouble(),
-                "GAS_AVERAGE" to etGasAverage.text.toString().toDouble(),
-                "ETHANOL_AVERAGE" to etEthanolAverage.text.toString().toDouble()*/
             )
         }
     }
