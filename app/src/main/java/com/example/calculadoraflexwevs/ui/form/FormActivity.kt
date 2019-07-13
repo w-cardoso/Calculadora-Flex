@@ -1,10 +1,16 @@
 package com.example.calculadoraflexwevs.ui.form
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.example.calculadoraflexwevs.R
+import com.example.calculadoraflexwevs.extensions.format
 import com.example.calculadoraflexwevs.model.CarData
+import com.example.calculadoraflexwevs.ui.login.LoginActivity
 import com.example.calculadoraflexwevs.ui.result.ResultActivity
+import com.example.calculadoraflexwevs.utils.DatabaseUtil
 import com.example.calculadoraflexwevs.watchers.DecimalTextWatcher
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -18,6 +24,8 @@ class FormActivity : AppCompatActivity() {
     private lateinit var userId: String
     private lateinit var mAuth: FirebaseAuth
     private val firebaseReferenceNode = "CarData"
+    private val defaultClearValueText = "0.0"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,23 +64,55 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun listenerFirebaseRealtime() {
-        val database = FirebaseDatabase.getInstance()
-        //Define para usar dados off-line
-//        database.setPersistenceEnabled(true)
-        database
+        DatabaseUtil.getDatabase()
             .getReference(firebaseReferenceNode)
             .child(userId)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     val carData = dataSnapshot.getValue(CarData::class.java)
-                    etGasPrice.setText(carData?.gasPrice.toString())
-                    etEthanolPrice.setText(carData?.ethanolPrice.toString())
-                    etGasAverage.setText(carData?.gasAverage.toString())
-                    etEthanolAverage.setText(carData?.ethanolAverage.toString())
+                    etGasPrice.setText(carData?.gasPrice?.format(2))
+                    etEthanolPrice.setText(carData?.ethanolPrice?.format(2))
+                    etGasAverage.setText(carData?.gasAverage?.format(1))
+                    etEthanolAverage.setText(carData?.ethanolAverage?.format(1))
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.form_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_clear -> {
+                clearData()
+                true
+            }
+            R.id.action_logout -> {
+                logout()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun logout() {
+        mAuth.signOut()
+        startActivity<LoginActivity>()
+        finish()
+    }
+
+    private fun clearData() {
+        etGasPrice.setText(defaultClearValueText)
+        etEthanolPrice.setText(defaultClearValueText)
+        etGasAverage.setText(defaultClearValueText)
+        etEthanolAverage.setText(defaultClearValueText)
+    }
+
+
 }

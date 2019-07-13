@@ -24,4 +24,6 @@
     <string name="label_name">Nome</string>
     <string name="label_phone">Telefone</string>
     <string name="header_new_user">Novo Usuário</string>
+    <string name="menu_clear">Limpar dados</string>
+    <string name="menu_logout">Sair</string>
 </resources>

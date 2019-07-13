@@ -10,6 +10,8 @@ import com.example.calculadoraflexwevs.ui.form.FormActivity
 import com.example.calculadoraflexwevs.ui.singup.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.toast
 
 class LoginActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance()
+        mAuth.currentUser?.reload()
         if (mAuth.currentUser != null) {
             goToHome()
         }
@@ -45,9 +48,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
-        val intent = Intent(this, FormActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
+        startActivity(intentFor<FormActivity>().singleTop())
+        /* val intent = Intent(this, FormActivity::class.java)
+         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+         startActivity(intent)*/
         finish()
     }
 

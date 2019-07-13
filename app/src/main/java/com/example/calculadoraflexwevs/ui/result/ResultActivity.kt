@@ -16,13 +16,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun calculate() {
-        /*val gasPrice = intent.extras?.getDouble("GAS_PRICE") ?: 0.0
-        val ethanolPrice = intent.extras?.getDouble("ETHANOL_PRICE") ?: 0.0
-        val gasAverage = intent.extras?.getDouble("GAS_AVERAGE") ?: 0.0
-        val ethanolAverage = intent.extras?.getDouble("ETHANOL_AVERAGE") ?: 0.0*/
-
         val carData = intent.extras?.getParcelable<CarData>("CAR_DATA")
-
         carData?.run {
             val performanceOfMyCar = carData.ethanolAverage / carData.gasAverage
             val priceOfFuelIndice = carData.ethanolPrice / carData.gasPrice

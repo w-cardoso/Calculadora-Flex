@@ -28,8 +28,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     saveInRealTimeDatabase()
                 } else {
-                    Toast.makeText(this@SignUpActivity, it.exception?.message,
-                        Toast.LENGTH_SHORT).show()
+                    toast(it.exception?.message.toString())
                 }
             }
         }
@@ -37,8 +36,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun saveInRealTimeDatabase() {
-        val user = User(inputName.text.toString(), inputLoginEmail.text.toString(),
-            inputPhone.text.toString())
+        val user = User(
+            inputName.text.toString(), inputLoginEmail.text.toString(),
+            inputPhone.text.toString()
+        )
         FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
             .setValue(user)
