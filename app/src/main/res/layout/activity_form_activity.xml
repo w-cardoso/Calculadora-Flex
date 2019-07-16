@@ -6,6 +6,7 @@
     <LinearLayout
         style="@style/container_master">
         <ImageView
+            android:id="@+id/ivBanner"
             style="@style/banner"/>
         <View style="@style/divider"/>
         <TextView

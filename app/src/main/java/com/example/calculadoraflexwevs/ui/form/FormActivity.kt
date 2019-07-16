@@ -10,12 +10,14 @@ import com.example.calculadoraflexwevs.model.CarData
 import com.example.calculadoraflexwevs.ui.login.LoginActivity
 import com.example.calculadoraflexwevs.ui.result.ResultActivity
 import com.example.calculadoraflexwevs.utils.DatabaseUtil
+import com.example.calculadoraflexwevs.utils.RemoteConfig
 import com.example.calculadoraflexwevs.watchers.DecimalTextWatcher
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_form_activity.*
 import org.jetbrains.anko.startActivity
 
@@ -32,6 +34,7 @@ class FormActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         userId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
         listenerFirebaseRealtime()
+        loadBanner()
 
         etGasPrice.addTextChangedListener(DecimalTextWatcher(etGasPrice))
         etEthanolPrice.addTextChangedListener(DecimalTextWatcher(etEthanolPrice))
@@ -107,6 +110,13 @@ class FormActivity : AppCompatActivity() {
         etEthanolPrice.setText(defaultClearValueText)
         etGasAverage.setText(defaultClearValueText)
         etEthanolAverage.setText(defaultClearValueText)
+    }
+
+    private fun loadBanner() {
+        val loginBanner = RemoteConfig.getFirebaseRemoteConfig()
+            .getString("banner_image")
+
+        Picasso.get().load(loginBanner).into(ivBanner)
     }
 
 
