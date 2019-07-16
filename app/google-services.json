@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "226847547345-d3r5b5ita68n0hltscr44taatqmo9nfn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calculadoraflexwevs",
+            "certificate_hash": "1848ab882dd04392ea862969f24a62cc274eb323"
+          }
+        },
+        {
           "client_id": "226847547345-ec9aftvcsv9bqs29k59rajcn2pl2kqs8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
