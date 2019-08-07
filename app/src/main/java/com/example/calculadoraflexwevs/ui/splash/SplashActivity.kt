@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
+import com.example.calculadoraflexwevs.BaseActivity
 import com.example.calculadoraflexwevs.BuildConfig
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.ui.form.FormActivity
@@ -17,7 +18,7 @@ import com.example.calculadoraflexwevs.utils.RemoteConfig
 import kotlinx.android.synthetic.main.activity_splash.*
 import org.jetbrains.anko.startActivity
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     private val TEMPO_AGUARDO_SPLASHSCREEN = 3500L
     override fun onCreate(savedInstanceState: Bundle?) {

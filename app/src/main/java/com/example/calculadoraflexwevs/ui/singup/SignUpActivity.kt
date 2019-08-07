@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.calculadoraflexwevs.BaseActivity
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -11,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_sing_up.*
 import org.jetbrains.anko.toast
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : BaseActivity() {
 
     private lateinit var mAuth: FirebaseAuth
 

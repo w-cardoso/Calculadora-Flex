@@ -2,12 +2,13 @@ package com.example.calculadoraflexwevs.ui.result
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.calculadoraflexwevs.BaseActivity
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.extensions.format
 import com.example.calculadoraflexwevs.model.CarData
 import kotlinx.android.synthetic.main.activity_result.*
 
-class ResultActivity : AppCompatActivity() {
+class ResultActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

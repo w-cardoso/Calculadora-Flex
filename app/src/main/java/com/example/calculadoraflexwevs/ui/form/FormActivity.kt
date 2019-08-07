@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calculadoraflexwevs.BaseActivity
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.extensions.format
 import com.example.calculadoraflexwevs.model.CarData
 import com.example.calculadoraflexwevs.ui.login.LoginActivity
 import com.example.calculadoraflexwevs.ui.result.ResultActivity
+import com.example.calculadoraflexwevs.utils.CalculaFlexTracker
 import com.example.calculadoraflexwevs.utils.DatabaseUtil
 import com.example.calculadoraflexwevs.utils.RemoteConfig
 import com.example.calculadoraflexwevs.watchers.DecimalTextWatcher
@@ -21,7 +23,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_form_activity.*
 import org.jetbrains.anko.startActivity
 
-class FormActivity : AppCompatActivity() {
+class FormActivity : BaseActivity() {
     private lateinit var userId: String
     private lateinit var mAuth: FirebaseAuth
     private val firebaseReferenceNode = "CarData"
@@ -52,6 +54,7 @@ class FormActivity : AppCompatActivity() {
             startActivity<ResultActivity>(
                 "CAR_DATA" to carData
             )
+            sendDataToAnalytics()
         }
     }
 
@@ -119,5 +122,14 @@ class FormActivity : AppCompatActivity() {
         Picasso.get().load(loginBanner).into(ivBanner)
     }
 
+    private fun sendDataToAnalytics() {
+        val bundle = Bundle()
+        bundle.putString("EVENT_NAME", "CALCULATION")
+        bundle.putDouble("GAS_PRICE", etGasPrice.text.toString().toDouble());
+        bundle.putDouble("ETHANOL_PRICE", etEthanolPrice.text.toString().toDouble());
+        bundle.putDouble("GAS_AVERAGE", etGasAverage.text.toString().toDouble());
+        bundle.putDouble("ETHANOL_AVERAGE", etEthanolAverage.text.toString().toDouble());
+        CalculaFlexTracker.trackEvent(this, bundle)
+    }
 
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.calculadoraflexwevs.BaseActivity
 import com.example.calculadoraflexwevs.R
 import com.example.calculadoraflexwevs.ui.form.FormActivity
 import com.example.calculadoraflexwevs.ui.singup.SignUpActivity
@@ -16,7 +17,7 @@ import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.toast
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
     private lateinit var mAuth: FirebaseAuth
     private val newUserRequestCode = 1
 
