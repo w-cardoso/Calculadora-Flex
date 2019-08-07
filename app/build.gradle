@@ -4,7 +4,11 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
 ext.anko_version = '0.10.8'
+
+
 
 
 android {
@@ -45,6 +49,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+
+
 
 }
 
