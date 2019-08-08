@@ -28,3 +28,28 @@ O Firebase Crashlytics é uma ferramenta de relatório de falhas leve e em tempo
 <h2>Firebase Analytics</h2>
 Os relatórios do Firebase Analytics ajudam a entender claramente como os usuários se comportam, o que permite tomarmos decisões fundamentadas sobre marketing de aplicativos e otimizações de desempenho.
 
+### Pré requisitos
+
+Dependencias necessárias para buildar o projeto.
+
+```
+    implementation 'com.google.firebase:firebase-auth:18.1.0'
+    implementation 'com.google.firebase:firebase-database:18.0.0'
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'com.google.firebase:firebase-config:18.0.0'
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.google.firebase:firebase-storage:18.1.0'
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+```
+
+<div align="center" class="container">
+  <div class="row">
+    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/home.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/team_home.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/placar.png" width="200" height="400"/>
+</div>
+</div>
