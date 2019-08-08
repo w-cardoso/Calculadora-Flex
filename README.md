@@ -48,8 +48,10 @@ Dependencias necessárias para buildar o projeto.
 
 <div align="center" class="container">
   <div class="row">
-    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/home.png" width="200" height="400"/>
-    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/team_home.png" width="200" height="400"/>
-    <img src="https://github.com/w-cardoso/placApp/blob/master/Prints%20Aplicativo/placar.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/Calculadora-Flex/blob/master/prints/login.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/Calculadora-Flex/blob/master/prints/home.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/Calculadora-Flex/blob/master/prints/calc.png" width="200" height="400"/>
+    <img src="https://github.com/w-cardoso/Calculadora-Flex/blob/master/prints/result.png" width="200" height="400"/>
+
 </div>
 </div>
